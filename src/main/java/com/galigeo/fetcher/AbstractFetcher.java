@@ -33,8 +33,9 @@ public abstract class AbstractFetcher {
         while(true){
             System.out.println(Calendar.getInstance().getTime() + " -- Fetching " + apiName + ":");
             List<AbstractPost> fetchedPosts = this.fetch();
-            this.storeInDB(fetchedPosts);
-            System.out.println("\tWrote " + fetchedPosts.size() + " posts to DB.");
+            
+            //this.storeInDB(fetchedPosts);
+            //System.out.println("\tWrote " + fetchedPosts.size() + " posts to DB.");
             this.sleep();
 		}
 	}

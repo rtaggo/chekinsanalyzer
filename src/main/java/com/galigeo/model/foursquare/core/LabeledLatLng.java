@@ -1,4 +1,4 @@
-package com.galigeo.model.foursquare;
+package com.galigeo.model.foursquare.core;
 
 public class LabeledLatLng {
 	public	String	label;
