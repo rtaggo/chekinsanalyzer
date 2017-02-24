@@ -1,6 +1,8 @@
 package com.galigeo.fetcher.twitter;
 
 import com.galigeo.configuration.Config;
+import com.galigeo.fetcher.foursquare.CheckInResolver;
+import com.galigeo.model.foursquare.core.Checkin;
 import com.galigeo.model.twitter.Tweet;
 import com.google.gson.Gson;
 
@@ -33,7 +35,11 @@ public class TwitterStreamingFetcher {
                 if (tweet.isFoursquare){
 	                System.out.println(tweet);     
 	                System.out.println("status: " + new Gson().toJson(status));
-	                System.out.println("Checkin Short ID: " + tweet.fullURL.replace("swarmapp.com/c/", ""));
+	                String shortId = tweet.fullURL.replace("swarmapp.com/c/", "");
+	                System.out.println("Checkin Short ID: " + shortId);
+	                Checkin checkin = CheckInResolver.resolveCheckin(shortId);
+	                System.out.println("checkin: " + new Gson().toJson(checkin));
+	                
 	                //System.out.println("    place: " + status.getPlace().toString());
 	                //System.out.println("    scopes places ids: " + status.getScopes().getPlaceIds());
                 }
