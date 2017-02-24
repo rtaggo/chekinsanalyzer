@@ -2,6 +2,9 @@ package com.galigeo.model.foursquare.core;
 
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PhotoItem {
 	public String 	id;
 	public Date 	createdAt;

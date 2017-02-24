@@ -34,14 +34,16 @@ public class TwitterStreamingFetcher {
                 //if (tweet.hasCoordinates() && (tweet.fromInstagam || tweet.fromSwarm)){
                 if (tweet.isFoursquare){
 	                System.out.println(tweet);     
-	                System.out.println("status: " + new Gson().toJson(status));
+	                //System.out.println("status: " + new Gson().toJson(status));
 	                String shortId = tweet.fullURL.replace("swarmapp.com/c/", "");
-	                System.out.println("Checkin Short ID: " + shortId);
+	                //System.out.println("Checkin Short ID: " + shortId);
 	                Checkin checkin = CheckInResolver.resolveCheckin(shortId);
-	                System.out.println("checkin: " + new Gson().toJson(checkin));
+	                System.out.println("venue: " + new Gson().toJson(checkin.venue));
 	                
 	                //System.out.println("    place: " + status.getPlace().toString());
 	                //System.out.println("    scopes places ids: " + status.getScopes().getPlaceIds());
+                } else if (tweet.hasCoordinates()) {
+                	System.out.println(tweet);	                
                 }
             }
 

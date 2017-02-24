@@ -30,7 +30,7 @@ public class CheckInResolver {
 				response = response + line + "\n";
 			}
 			in.close();
-			System.out.println("Resolve response:" + response);
+			//System.out.println("Resolve response:" + response);
 			ObjectMapper mapper = new ObjectMapper();
 			ResolveResponse resolveResp = mapper.readValue(response, ResolveResponse.class);
 			return resolveResp.response.checkin;

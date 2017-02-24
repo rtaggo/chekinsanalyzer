@@ -2,6 +2,7 @@ package com.galigeo.fetcher.twitter;
 
 import com.galigeo.fetcher.AbstractFetcher;
 import com.galigeo.model.twitter.Tweet;
+import com.google.gson.Gson;
 
 import twitter4j.Status;
 
@@ -49,6 +50,7 @@ public class TweetParser {
         if (status.getMediaEntities().length>0){
             tweet.mediaURL = status.getMediaEntities()[0].getMediaURL()+":small";
         }
+        //System.out.println("place: " + new Gson().toJson(status.getPlace()));
         tweet.popularity = TweetParser.computePopularity(tweet);
         return tweet;
     }

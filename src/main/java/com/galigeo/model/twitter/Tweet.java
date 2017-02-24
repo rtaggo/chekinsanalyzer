@@ -42,9 +42,14 @@ public class Tweet extends AbstractPost {
 	 */
 	public String toString(){
         String sText = text.replaceAll("\n"," ");
+        /*
         String startText = "TW [pop="+popularity + ", followersCount=" + followersCount + ", retweetCount="
 				+ retweetCount + ", favoriteCount=" + favoriteCount
 				+ ", location=" + location + ", language=" + language + "] ";
+		*/
+        String startText = "TW [pop="+popularity + ", followersCount=" + followersCount + ", retweetCount="
+				+ retweetCount + ", favoriteCount=" + favoriteCount + "] ";
+        /*
         if (this.hasCoordinates() && this.locationName!=null)
             return startText + createdAt +" ["+this.getLat()+","+this.getLng()+"] ("+locationName+") "+userName+": "+sText;
 		else if (this.hasCoordinates())
@@ -53,5 +58,14 @@ public class Tweet extends AbstractPost {
             return startText + createdAt +" "+locationName+" "+userName+": "+sText;
         else
             return startText + createdAt +" [NO LOCATION] "+userName+": "+sText;
+        */
+        if (this.hasCoordinates() && this.locationName!=null)
+            return startText +" ["+this.getLat()+","+this.getLng()+"] " + userName + ": "+ sText + "("+locationName+") " + "[" + createdAt + "]";
+		else if (this.hasCoordinates())
+            return startText +" ["+this.getLat()+","+this.getLng()+"] " + userName + ": "+ sText + "[" + createdAt + "]";
+        else if (this.locationName!=null)
+            return startText + " " + locationName + " " + userName + ": " + sText + "[" + createdAt + "]";
+        else
+            return startText + " [NO LOCATION] " + userName + ": " + sText + "[" + createdAt + "]";
 	}
 }

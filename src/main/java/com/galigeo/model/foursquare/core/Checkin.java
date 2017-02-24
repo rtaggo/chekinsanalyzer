@@ -21,5 +21,5 @@ public class Checkin {
 	public	Sticker		sticker;
 	
 	public	String		reasonCannotSeeComments;
-	public	String		reasonCannotAddComments;	
+	public	String		reasonCannotAddComments;
 }
