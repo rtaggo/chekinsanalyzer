@@ -1,5 +1,5 @@
 package com.galigeo.fetcher.foursquare;
 
-public class CheckInRevolver {
+public class CheckInResolver {
 
 }
