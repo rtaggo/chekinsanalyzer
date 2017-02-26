@@ -60,12 +60,12 @@ public class Tweet extends AbstractPost {
             return startText + createdAt +" [NO LOCATION] "+userName+": "+sText;
         */
         if (this.hasCoordinates() && this.locationName!=null)
-            return startText +" ["+this.getLat()+","+this.getLng()+"] " + userName + ": "+ sText + "("+locationName+") " + "[" + createdAt + "]";
+            return startText +" ["+this.getLat()+","+this.getLng()+"] " + userName + ": "+ sText + " ("+locationName+") " + " [" + createdAt + "]";
 		else if (this.hasCoordinates())
-            return startText +" ["+this.getLat()+","+this.getLng()+"] " + userName + ": "+ sText + "[" + createdAt + "]";
+            return startText +" ["+this.getLat()+","+this.getLng()+"] " + userName + ": "+ sText + " [" + createdAt + "]";
         else if (this.locationName!=null)
-            return startText + " " + locationName + " " + userName + ": " + sText + "[" + createdAt + "]";
+            return startText + " " + locationName + " " + userName + ": " + sText + " [" + createdAt + "]";
         else
-            return startText + " [NO LOCATION] " + userName + ": " + sText + "[" + createdAt + "]";
+            return startText + " [NO LOCATION] " + userName + ": " + sText + " [" + createdAt + "]";
 	}
 }

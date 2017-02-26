@@ -50,7 +50,14 @@ public class TweetParser {
         if (status.getMediaEntities().length>0){
             tweet.mediaURL = status.getMediaEntities()[0].getMediaURL()+":small";
         }
-        //System.out.println("place: " + new Gson().toJson(status.getPlace()));
+        /*
+        if (status.getUserMentionEntities().length > 0){
+        	System.out.println("UserMentionEntities: " + new Gson().toJson(status.getUserMentionEntities()));
+        }
+        if (status.getHashtagEntities().length > 0){
+        	System.out.println("HashtagEntities: " + new Gson().toJson(status.getHashtagEntities()));
+        }
+        */
         tweet.popularity = TweetParser.computePopularity(tweet);
         return tweet;
     }

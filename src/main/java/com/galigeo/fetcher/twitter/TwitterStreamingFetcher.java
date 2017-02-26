@@ -42,6 +42,8 @@ public class TwitterStreamingFetcher {
 	                
 	                //System.out.println("    place: " + status.getPlace().toString());
 	                //System.out.println("    scopes places ids: " + status.getScopes().getPlaceIds());
+                } else if (tweet.fromInstagam) {
+                	System.out.println("INSTAGRAM : " + tweet);	    
                 } else if (tweet.hasCoordinates()) {
                 	System.out.println(tweet);	                
                 }

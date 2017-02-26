@@ -25,7 +25,8 @@ public class Config {
             "ssbot",
             "_BB_RADIO_MUSIC",
             "RadioTeddyMusic",
-            "030_Berlin"
+            "030_Berlin",
+            "trendinaliaFR"
     );
     
     // Paris bounding box
