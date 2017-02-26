@@ -31,21 +31,24 @@ public class TwitterStreamingFetcher {
         StatusListener listener = new StatusListener(){
             public void onStatus(Status status) {
                 Tweet tweet = TweetParser.parse(status);
-                //if (tweet.hasCoordinates() && (tweet.fromInstagam || tweet.fromSwarm)){
-                if (tweet.isFoursquare){
-	                System.out.println(tweet);     
-	                //System.out.println("status: " + new Gson().toJson(status));
-	                String shortId = tweet.fullURL.replace("swarmapp.com/c/", "");
-	                //System.out.println("Checkin Short ID: " + shortId);
-	                Checkin checkin = CheckInResolver.resolveCheckin(shortId);
-	                System.out.println("venue: " + new Gson().toJson(checkin.venue));
-	                
-	                //System.out.println("    place: " + status.getPlace().toString());
-	                //System.out.println("    scopes places ids: " + status.getScopes().getPlaceIds());
-                } else if (tweet.fromInstagam) {
-                	System.out.println("INSTAGRAM : " + tweet);	    
-                } else if (tweet.hasCoordinates()) {
-                	System.out.println(tweet);	                
+                if (!Config.twitter_usersToIgnore.contains(tweet.userName)) {
+	                //if (tweet.hasCoordinates() && (tweet.fromInstagam || tweet.fromSwarm)){
+	                if (tweet.isFoursquare){
+		                System.out.println(tweet);     
+		                //System.out.println("status: " + new Gson().toJson(status));
+		                String shortId = tweet.fullURL.replace("swarmapp.com/c/", "");
+		                //System.out.println("Checkin Short ID: " + shortId);
+		                Checkin checkin = CheckInResolver.resolveCheckin(shortId);
+		                System.out.println("FOURSQUARE Venue: " + new Gson().toJson(checkin.venue));
+		                
+		                //System.out.println("    place: " + status.getPlace().toString());
+		                //System.out.println("    scopes places ids: " + status.getScopes().getPlaceIds());
+	                } else if (tweet.fromInstagam) {
+	                	System.out.println("INSTAGRAM : " + tweet);
+	                	System.out.println("SOURCE: " + tweet.source);
+	                } else if (tweet.hasCoordinates()) {
+	                	System.out.println("TWITTER : " + tweet);	                
+	                }
                 }
             }
 

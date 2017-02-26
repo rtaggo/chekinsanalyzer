@@ -46,14 +46,15 @@ public class TweetParser {
         if (status.getPlace()!=null){
             tweet.setLocationName(status.getPlace().getFullName());
         }
-
+        /*
         if (status.getMediaEntities().length>0){
             tweet.mediaURL = status.getMediaEntities()[0].getMediaURL()+":small";
         }
-        /*
-        if (status.getUserMentionEntities().length > 0){
+        */
+        if (tweet.hasCoordinates() && (status.getUserMentionEntities().length > 0)){
         	System.out.println("UserMentionEntities: " + new Gson().toJson(status.getUserMentionEntities()));
         }
+        /*
         if (status.getHashtagEntities().length > 0){
         	System.out.println("HashtagEntities: " + new Gson().toJson(status.getHashtagEntities()));
         }

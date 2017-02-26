@@ -47,7 +47,7 @@ public class Tweet extends AbstractPost {
 				+ retweetCount + ", favoriteCount=" + favoriteCount
 				+ ", location=" + location + ", language=" + language + "] ";
 		*/
-        String startText = "TW [pop="+popularity + ", followersCount=" + followersCount + ", retweetCount="
+        String startText = "[pop="+popularity + ", followersCount=" + followersCount + ", retweetCount="
 				+ retweetCount + ", favoriteCount=" + favoriteCount + "] ";
         /*
         if (this.hasCoordinates() && this.locationName!=null)
